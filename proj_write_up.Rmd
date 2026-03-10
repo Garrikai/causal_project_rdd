@@ -1,0 +1,381 @@
+---
+title: 'Effects of Old Age Pension on health related outcomes: Regression discontinuity
+  design approach'
+documentclass: elsarticle
+Thesis_FP: true
+output:
+  pdf_document:
+    keep_tex: true
+    template: Tex/TexDefault.txt
+    fig_width: 3.5
+    fig_height: 3.5
+    df_print: paged
+  html_document:
+    df_print: paged
+Entry5: Lisbon School of Economics and Management
+Entry6: 2025
+AddTitle: true
+Author1: Garikai Zvinavashe
+Ref1: ISEG, Lisbon, Portugal
+Email1: garizvina\@gmail.com
+CorrespAuthor_1: false
+keywords: 'old age pension \sep research discontinuity design \sep conditional cash
+  transfers '
+JELCodes: L250 \sep L100
+BottomRFooter: \footnotesize Page \thepage
+addtoprule: true
+addfootrule: true
+margin: 2.3
+bottom: 2
+top: 2.5
+HardSet_layout: true
+linenumbers: false
+bibliography: Tex/ref.bib
+csl: "Tex/harvard-stellenbosch-university.csl"
+RemovePreprintSubmittedTo: true
+Journal: Journal of Something
+toc: true
+numbersections: true
+fontsize: 11pt
+linestretch: 1.2
+link-citations: true
+Uni_Logo: Tex/Logo_ISEG.png
+abstract: |
+  Conditional Transfer programs have been a frequently studied phenomenon in a plethora of developing and developed economies, especially for impact evaluation. The focus of this paper is to focus on one kind of such program, namely the old age pension grants. These involve cash transfer subsidies from the government to its local citizens on the condition they meet a specific age threshold of 60 years. We closely measure the effects of these grants in the context of South Africa and infer if the retirement consumption puzzle holds..
+---
+
+<!-- First: Set your default preferences for chunk options: -->
+
+<!-- If you want a chunk's code to be printed, set echo = TRUE. message = FALSE stops R printing ugly package loading details in your final paper too. I also suggest setting warning = FALSE and checking for warnings in R, else you might find ugly warnings in your paper. -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
+# Note: Include = FALSE implies the code is executed, but not printed in your pdf.
+# warning and message = FALSE implies ugly messages and warnings are removed from your pdf.
+# These should be picked up when you execute the command chunks (code sections below) in your rmd, not printed in your paper!
+
+# Lets load in example data, and see how this can be stored and later called from your 'data' folder.
+source("code/data_prep.R")
+```
+
+```{r create-descr, include=FALSE}
+# Include the table creation code here
+source("code/descr.R")
+```
+
+
+```{r dataprep, include=FALSE}
+# Include the table creation code here
+source("code/data_prep.R")
+```
+
+
+```{r create-estimation, include=FALSE}
+# Include the table creation code here
+source("code/estimation.R")
+```
+
+
+```{r create-graphs, include=FALSE}
+# Include the table creation code here
+source("code/graphs.R")
+```
+
+```{r create-sensitivity, include=FALSE}
+# Include the table creation code here
+source("code/sensitivity.R")
+```
+
+
+
+
+\newpage
+<!-- ############################## -->
+<!-- # Start Writing here: -->
+<!-- ############################## -->
+
+# Introduction \label{Introduction}
+
+Retirement is a natural process that most agents in the economy will probably experience at some point and for economists, studying the changes in household consumption patterns at this juncture is quite vital. Most older people tend to belong to a household with either a spouse or other family member, who may still be in the labour market. Henceforth, this study attempts to decipher the effects of a family member being eligible for an old age pension in South Africa and how this could affect household expenditure using a quasi-experimental study. 
+
+In the context of developing countries, the effect of old age pensions has been quite extensively studied. @chen2014, finds that the receipt of pensions targeted towards the elderly will raise their income. Still focusing on the old age population, another study finds that pension receipt will cause a decline in elderly labour force participation in Brazil and South Africa [@ranchhod2006 \& @de2008]. Since our study focuses on the spillover of the pension, we focus our attention on a study by @edmonds2005, where pensions would not only reduce the supply of child labour but lead to an increase in school enrollments. @duflo2000 considers the effect of old age pension on children's nutrition and health. @duflo2003 also measured the effects of pensions when they are targeted to a specific gender and they found that grandmothers would tend to spend more on their granddaughters but there were no significant effects between the male cohorts.
+
+Studies carried out in the earlier advancement of understanding the relationship between household consumption and the probability of an individual being of retirement age concluded a negative relationship. The transmission channels for the negative effect included a shift from labour market-related activities towards home-based activities and another channel attributable to dependents in the household moving out.   
+
+This will be on of the first studies to primarily investigate the effects of old age pensions on household monthly food expenditure in South Africa. This research has heavy policy implications because South Africa has one of the highest Gini coefficients and a larger population falling under the poverty line, therefore government subsidies in the form of cash transfers can help change consumption patterns. Since most of the literature in the country focuses on health outcomes and the living standards of dependents in these households.  
+
+In essence, the paper attempts to highlight if the age-based pension provided by the government will affect the amount of household income allocated towards food using a regression discontinuity design. The paper used the National Income and Dynamics Survey (NIDS) to understand both the individual and household dynamics in South Africa [@nids]. Eligibility to the pension will be based on meeting an age criterion, which will allow us to be able to explicitly identify the effects of treatment. @edmonds2005 uses discontinuity in age eligibility to estimate the regression design, which we follow closely here as age eligibility will determine an individual's potential receipt of the pension.
+
+This paper has some very interesting findings, some are expected and others are not as much, for instance, we sought to check if retirement consumption exists in the country. As expected we find that the cumulative probability of people taking up the retirement pension increases when the individuals reach the age of 60 years, this result was expected given the economic background of the population. However, in opposition to the puzzle, we note that on average monthly food expenditure increases significantly at the threshold age of 60 years but declines at later ages. This finding is slightly inconsistent with the consumption retirement puzzle for ages above the threshold as shown in Figure \ref{Figure2}, there might be heterogeniety in spending towards food expenditure but the slope is slightly constant.
+
+Additionally, our research design can withstand all the main specification tests and robustness checks. We are also able to confirm that there are no jumps of the food expenditure at any other cutoff thresholds, we additionally can prove the density of the force variable (age) does not have any discontinuities at the threshold, thus no manipulation. The results from our estimation are also robust to change in bandwidths, however, polynomials in the parametric give statistically insignificant estimates. 
+
+The paper is structured as follows. Section 2 will provide a brief introduction to the impact evaluation program and introduce the methodology that drives regression discontinuity design including the models and their assumptions. Followed by some explanatory graphical analysis in Section 3, along with the necessary data descriptive analysis. Section 4 will discuss the results of the estimations, then Section 5 provides some robustness checks and finally, Section 6 concludes the study.
+
+
+# Methodology \label{Meth} 
+
+## The South African Old Age Pension Program {-}
+In this section, we will present a brief history and explain the framework and functions of these pensions in South Africa. The Old age pension program is universal, non-contributory and age-tested, meaning individuals have to meet an age threshold to be eligible for the program. It was introduced as a safety net for the older generation in the population that had left the job market and would not be able to earn an income. Concurrently most of the older population in this period has very low levels of education and would not be able to enter the job market had they wanted to, therefore, the inception of the subsidy. During the apartheid era this program used to be racially biased towards white individuals but post-era, South Africans saw a shift towards covering black Africans as well.  
+A monthly unconditional cash transfer of approximately R1980 will be sent to individuals who are eligible for the pension, meaning adults older than 60 years. South Africa has a larger population living under the poverty line, earning very low wages and with a high unemployment rate, this is especially evident among the black Africans. This government old age pension amounts to almost double the median of the household incomes and will be influential in household decision-making and consumption [@ralston2016].  
+
+They utilise the eligibility cutoff age of 60 years as a proxy to show that an individual received their cash transfer. The assumption is that individuals who reach the required age are eligible for the program. Before the age threshold for men was 65 years and 60 years for women but it was then consolidated to be equivalent at the age of 60 years.  
+This paper studies the implications of individuals being eligible for the pension and spending behaviour, particularly expenditure on food. Evidence highlights the importance of old age pensions around the age of 60 years on monthly household expenditure on food. This source of income in the household is vital, especially considering the South African household extended nucleus family composition dependency.
+
+
+## Logical model {-}
+
+The next step in the study will involve acknowledgement that we are dealing with a selection in an unobservables realm. The logic is that some of the unobservables that will determine treatment will also affect the potential outcomes. In addition, we find that controlling on the `X's` will not address all the sample selection bias.  
+The equation below shows a variant of the conditional expectation equation that will be considered in our model. Let `D` indicate a dummy that takes the value one when individuals have reached the age of 720 months and zero otherwise, and `Y` be the household food expenditure. The model specification will include linear models, models that include interaction and polynomials.
+
+
+$$ E[Y | D_i, X] = E[Y_0 | X] + D_i (E[Y_1 | D_i, X] - E[Y_0 | D_i, X]) \text{ where } (Y_0, Y_1) \not\!\perp\!\!\!\perp D_i \mid X \label{eq1}$$
+Where the treatment variable can be represented as follows:
+$$
+D_i =
+   \begin{cases} 1
+       \text{ if } & X_i\geq{60}
+       \\ 0
+       \text{ if } & X_i < 60    
+   \end{cases} \label{eq2}
+$$  
+The existence of the strict clear-cut age of eligibility threshold of 60 years will be able to establish continuity in the probability of an individual being eligible to receive the pension hence the application of a regression discontinuity design is viable as shown in Figure \ref{Figure1}.  
+Consequentially we can identify the effects of pensions on household food expenditure due to the jump attributed to treatment into the program at the point of discontinuity at age 60(720 months). This addresses the first requirement for regression discontinuity design models [@lee2010]. In this study, we do not consider compilers and never-takers because in the data we do not acknowledge individuals who are eligible but do not receive a pension. This caveat in the model allows us to study a Sharp Regression DD with a jump in the probability of eligibility at 720 months of age is either equal to one or zero.
+
+
+### Hypotheses {-}
+Considering the literature on the puzzle between retirement and consumption, weighted against multitudes of studies that tend not to find many effects of these pensions on many other outcomes. In this study, we posit that we would expect to find some evidence supporting that old age pension will increase household expenditure on food, especially around the cutoff age. However, we also expect the retirement puzzle to hold for ages further away from the threshold. 
+
+
+## Data Description  {-}
+```{r Table1, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+#Print the combined LaTex table
+stargazer(descriptive, type = "latex", title = "",
+          label = "Table1",
+          summary = TRUE, digits = 2, note = "")
+
+# Print the table with a custom caption 
+cat("\\begin{table}[!htbp] \\centering") 
+cat("\\caption{Descriptive Statistics \\label{Table1}}") 
+cat("\\end{table}")
+```
+<!-- hfill can be used to create a space, like here between text and table. -->
+
+The dataset provided contains:
+
+- `pid`: A randomly assigned person indicator in the survey
+- `Household Food expenditure`: Total amount spent by the household on food expenditure monthly
+- `Household Income`: Household monthly income 
+- `Gender`: Binary variable indicating 1 if male and 0 if female
+- `Race`: Binary variable indicating 1 if African and 0 if other race
+- `Perceived health status`: Binary variable grouped into Healthy = "Excellent", "Very good", "Good" and Unhealthy = "Fair", "Poor".
+- `Highest level of Education`: Individual has none, some primary, some secondary, vs secondary or more
+- `Marital Status`:Individual has never married, divorced/separated, currently married, vs widowed
+- `Household Size`: Number of people in a household
+- `Treatment`: Binary variable indicating if an individual was assigned to the old age pension program when they reach the age eligibility threshold  
+
+In this study, we use data from wave 5 of a household and individual-based "National Income and Dynamic Survey", which was released in 2016. This national survey is carried out by the South African Labour and Development Research Unit at the University of South Africa. It includes survey data for randomly selected households who are interviewed [@nids].  
+Descriptive statistics will be dependent on two elements, the first includes the full sample, and then we subset into a sample of the treated and untreated population. From Table 2.1 we note that on average individuals are spending about R1921 per month on food, with a minimum of R95. Household incomes on average are quite high but this could be caused by the larger outliers like the max of R295000, from information we know that on average the regular South African is underpaid. 
+We also note that for people eligible for old age pension men only represent approximately 43% and postulate that there are more female old age pensioners, which is consistent with the the grandmother and grand-daughter study [@duflo2003]. On average, also note that black Africans are the most likely to take up the pension at the threshold age and individuals tend to report healthy status more often. Finally, we note that on average there are about  3 individuals in a household which can affect consumption patterns and also on average people have 10 years of schooling, which means at the threshold most of the pensioners would not have higher education and probably work lower paying jobs
+
+\hfill  
+
+# Results
+
+Figure \ref{Figure2} based on the full sample shows that there is a small but significant discontinuity in the mean household food expenditure that is observed across the old age pension grant eligibility age threshold. The graph shows that on average expenditure of food in the household is almost constant with increasing age before the pension eligibility age threshold. However, discontinuity is observed between the age of 708 months and 720 months and a trend is visible after the threshold age of 720 months. The jump may be small but it is present around the discontinuity age threshold and can conclude that age for eligibility is a viable forcing variable for a Sharp RDD setup.(Figure \ref{Figure1})  
+
+We begin by analyzing the estimates generated by the parametric models, these models include user interaction and tweaking with the parameters. Table \ref{table3} provides the results of parametric models using the same slope, different slopes and a polynomial of order 2. We were quite averse to overfitting and decided to not venture into higher-order polynomials. Only the linear model with a common slope has statistically significant coefficients and this is only at a 10% level of significance. The common trend model being the only valid one seems to be consistent given the patterns from Figure \ref{Figure2}. Considering that the treatment effect does not affect the forcing, we expect that individuals who reached the age threshold of 720 months will on average spend R786 more on food, ceteris paribus. However, the forcing variable is not statistically significant.  
+To be able to disentangle the long-term non-linear trends we can resort to using smaller bandwidths around the cutoff date. The rationale is that smaller window frames will reduce the relevance of long-term trends, hence we adopt the non-parametric approach. Table \ref{table4} compares the results of a local polynomial and a local linear regression, with the coefficients being statistically significant at the 10% level of significance. We can suggest that on average households will spend between R1177 (linear) & R1498 (polynomial of order 2) more on food for those adults around the 720-month age threshold.
+
+<!-- hfill can be used to create a space, like here between text and table. -->
+\newpage
+# Specification Checks
+
+## Sorting/ Manipulation Test  
+`H0: The continuity of the density of the age variable `  
+`Ha: A jump in the density function at an age threshold of 720 months`
+
+@mccrary2008 proposes a density test as a more formal approach for testing if there is manipulation of the treatment variable. The idea is to avoid discontinuities of the density of the forcing variable at the age threshold of 720 months as this could suggest manipulation. Manipulation could mean that there is some sorting evident around the age threshold. @cattaneo2019 test proposed manipulation testing using local polynomial density estimation.  This provides the binomial test statistic with (Ho: p =0.5) robust standard errors and in our study, it fails to reject the null hypothesis since the overlap (p-value 0.543) is larger than the 5% level of significance. In conclusion, we can safely suggest that there is no manipulation with supporting evidence in Figure \ref{Figure6}.
+
+
+## Placebo Test: Falsification checks
+Since we passed the manipulation test we then carried on to test for falsification tests, precisely we found that other covariates being included in the model will not affect the treatment effects.
+
+
+## Sensitivity to bandwidth choice
+The objective here is to minimize the mean squared error between the estimator and the actual eligibility effect. We find that our results will be very sensitive to the bandwidth selection. Additionally, we use the data-generating process to infer the optimal bandwidth, adopting the Imbens-Kalyanamaran Optimal Bandwidth function and finding an IK bandwidth of 44.945. We then compare bandwidth windows on the parametric and non-parametric models. Table \ref{table5} compares bandwidths of 3,4 and 5 years along the threshold age. We find that the smaller the bandwidth window will lead to greater treatment effects, meaning the treatment effect is much higher for those individuals with ages closer to the threshold age of 720. This result is consistent with our rationale for using regression discontinuity design.  
+Another approach in research involves comparing the optimal bandwidth with its half and double value. We carry this out using the non-parametric estimation since we are relaxing assumptions on parameters. We note lower effects when the bandwidth window is larger than ideal and higher effects when the window is lower. Therefore, we can conclude that eligibility for old age pension does lead to changes in food expenditure, shown in Table \ref{table6}.
+
+\newpage
+# Conclusion
+
+Most of the current research on the effects of old age pension has been primarily focused on nutritional outcomes for children, their perceived health status and intergenerational characteristics. This study aimed to be unique by focusing on the implication of such financial programs on household consumption expenditure. We can exploit the age-based eligibility threshold to implement our regression discontinuity design on the wave 5 NIDS survey from South Africa. The optimal bandwidth window was approximately 4 years (48 months) from the threshold of age 60. We find that eligibility at the age threshold will most certainly increase the monthly household food expenditure for individuals around that threshold.  
+This study was important for policy implication because it considers the economic characteristics of the population in South Africa and highlights that older family members will be able to impact the food expenditure in a household positively. Therefore, this could motivate the government to keep the program as it may help alleviate hunger in poverty-stricken households, since a greater population of the people who qualified for the pension due to their age and also claimed them were reported in the survey normally as poor.
+
+
+
+<!-- Make title of bibliography here: -->
+<!-- \newpage -->
+
+\newpage
+
+# References {-}
+
+<div id="refs"></div>
+
+
+# Appendix {-}
+
+## Appendix A {-}
+
+```{r figure1, echo=FALSE, fig.align='center', fig.cap="Discontinuities in Retirement eligibility probability at threshold age \\label{Figure1}", fig.height=3, fig.width=6, warning=FALSE, dev='png'}
+g1
+```
+
+```{r figure2, echo=FALSE, fig.align='center', fig.cap="Discontinuities in Household food expenditure across age in months \\label{Figure2}", fig.height=3, fig.width=6, warning=FALSE, dev='png'}
+g2
+```
+
+```{r figure3, echo=FALSE, fig.align='center', fig.cap="Average Household food expenditure (binned by age) \\label{Figure3}", fig.height=3, fig.width=6, warning=FALSE, dev='png'}
+g3
+```
+
+
+```{r figure4, echo=FALSE, fig.align='center', fig.cap="Local Linear using optimal bandwidth \\label{Figure4}", fig.height=3, fig.width=6, message=FALSE, warning=FALSE, dev='png'}
+rdrobust::rdplot(data2yr$w5_expf,
+                 data2yr$agemonth,
+                 c = 720,
+                 kernel = "tri",
+                 title = "Local linear with optimal bandwidth",
+                 x.label = "Age from 720 months",
+                 y.label =  "Household Monthly food expenditure  \n (000s)"
+)
+```
+
+```{r figure5, echo=FALSE, fig.align='center', fig.cap="Quadratic model \\label{Figure5}", fig.height=3, fig.width=6, message=FALSE, warning=FALSE, dev='png'}
+rdrobust::rdplot(data2yr$w5_expf,
+                 data2yr$agemonth,
+                 c = 720,
+                 kernel = "tri",
+                 p = 2,
+                 title = "Quadriatic estimation: polynomial of order 2",
+                 x.label = "Age from 720 months",
+                 y.label =  "Household Monthly food expenditure  \n Rands (000s)"
+)
+```
+
+
+```{r figure6, echo=FALSE, fig.align='center', fig.cap="McCrary Manipulation Test \\label{Figure6}", fig.height=3, fig.width=6, message=FALSE, warning=FALSE, dev='png', results='hide'}
+plot_density_test
+```
+
+## Appendix B {-}
+
+```{r table3, echo=FALSE, message=FALSE, warning=FALSE}
+library(huxtable)
+Title <- "The Effect of Old age pensions on Food Expenditure:Parametric Estimation \\label{table3}"
+Label <- "Reg01"
+htab1 <-
+huxreg(lm_same, lm_diff, lm_quad,
+                statistics = c(N = "nobs", R2 = "r.squared"),
+                note = "%stars%.") %>%
+  set_caption(Title) %>%
+  set_label(Label)
+# More settings:
+font_size(htab1) <- 9
+# Let's change regression names: this is slightly hacky, but works. Comment out this section to see what the default looks like:
+  Names <- c( "Linear model with common slopes", "Linear model with different slopes", "Non-linear model: Quadriatic")
+  for(i in 1:length(Names)) {
+    htab1[1,][[1+i]] <- Names[i]
+  }
+# Now simply call the table:
+htab1
+```
+
+```{r table4, echo=FALSE}
+# Extract key estimates
+extract_estimates <- function(model) {
+    data.frame(
+        Estimate = model$coef[2, 1],
+        Std.Error = model$se[2, 1],
+        Bandwidth = model$bws[1]
+    )
+}
+
+resrd_mod1 <- extract_estimates(rd_mod1)
+resquad_rdrobust <- extract_estimates(quad_rdrobust)
+
+
+# Combine results into one data frame
+combined_results <- rbind(
+    cbind(Model = "Local linear", resrd_mod1),
+    cbind(Model = "Quadratic model", resquad_rdrobust)
+)
+
+# Create huxtable
+htab2 <- as_hux(combined_results)
+
+# Add a title row 
+htab2 <- rbind( c("The Effect of Old age pensions on Food Expenditure", rep("", ncol(htab2) - 1)), htab2 ) 
+# Merge cells for the title row 
+htab2 <- merge_cells(htab2, 1, 1:ncol(htab2))
+
+# Add styling
+htab2 <- htab2 %>%
+    set_bold(1, 1:ncol(htab2), TRUE) %>%
+    set_align(1, 1, "center") %>%
+    set_all_borders(TRUE) %>%
+    set_width(0.8) %>% 
+    set_caption("Non-Parametric Estimation \\label{table4}")
+
+# Print huxtable
+htab2
+```
+
+```{r table5, echo=FALSE}
+# Generate the table with modelsummary
+table <- modelsummary(
+  list(
+    "Full data" = lm_same,
+    "Bandwidth = 3" = lm_same_bw3,
+    "Bandwidth = 5" = lm_same_bw5
+  ),
+  stars = TRUE,
+  gof_omit = "^(?!.*RMSE)",
+  title = "",
+  output = "data.frame"
+)
+
+# Convert the table to LaTeX and add caption/label
+kable(table, format = "latex", booktabs = TRUE, caption = "Parametric: Bandwidth Selection \\label{table5}") %>%
+  kable_styling(latex_options = "hold_position")
+
+```
+
+```{r table7, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+library(modelsummary)
+
+# Generate the table with modelsummary
+modelsummary(
+  list(
+    "Full data" = lm_same,
+    "Bandwidth = 3" = lm_same_bw3,
+    "Bandwidth = 5" = lm_same_bw5
+  ),
+  stars = TRUE,
+  gof_omit = "^(?!.*RMSE)",
+  title = "Parametric: Bandwidth Selection",
+  output = "latex"
+)
+
+```
+
+
+```{r table6, echo=FALSE}
+
+results %>%
+    kable("latex", caption = "Non-parametric: Bandwidth selection \\label{table6}" ) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                  full_width = TRUE, position = "left", font_size = 12)
+
+```
