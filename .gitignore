@@ -55,3 +55,6 @@ rsconnect/
 *log
 *spl
 *tex
+
+# Remove Java
+libs/
