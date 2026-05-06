@@ -1,4 +1,4 @@
-# causal_project_rdd
+# Causal Inference Project
 Research Discontinuity Design
 ## Documentation
 This is the readme documentation of this research discontinuity design application on South African data. The data set was retrieved from the NIDS cram survey and the link is attached in the references. The data can be downloaded on the SADRU website, which is controlled and monitored by the University of Cape Town, South Africa. To replicate this paper, you can source the data from the data folder in the pre-processing file named "initial". We compiled it in Stata and we merged household and individual-level survey data using pid (person identification number).
